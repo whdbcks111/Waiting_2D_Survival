@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField]
-    GameObject target;
+    private float _followSpeed = 3F;
+    [SerializeField]
+    private GameObject target;
 
-    private Vector2 offset;
+    private Vector3 offset;
 
     void Start()
     {
@@ -16,6 +16,6 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
-        transform.position = target.transform.position + (Vector3)offset;
+        transform.position = Vector3.Lerp(transform.position, target.transform.position + offset, _followSpeed * Time.deltaTime);
     }
 }
