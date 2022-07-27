@@ -1,0 +1,4 @@
+repository "2022_Sunrinthon@joyuchan@cloud"
+  path "/"
+    br "/main"
+    co "/main"

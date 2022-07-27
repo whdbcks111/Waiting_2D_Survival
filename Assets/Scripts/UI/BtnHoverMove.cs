@@ -8,26 +8,30 @@ public class BtnHoverMove : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private bool isHover = false;
     private RectTransform rectTransform;
 
-    void Awake() {
+    void Awake()
+    {
         rectTransform = GetComponent<RectTransform>();
     }
 
     void Update()
     {
         var pos = rectTransform.anchoredPosition;
-        if(isHover) {
+        if (isHover)
+        {
             pos.x = Mathf.Lerp(pos.x, -115f, 30 * Time.deltaTime);
         }
-        else 
+        else
             pos.x = Mathf.Lerp(pos.x, -90f, 30 * Time.deltaTime);
         rectTransform.anchoredPosition = pos;
     }
 
-    public void OnPointerEnter(PointerEventData eventData) {
-         isHover = true;
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        isHover = true;
     }
 
-    public void OnPointerExit(PointerEventData eventData) {
-         isHover = false;
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        isHover = false;
     }
 }

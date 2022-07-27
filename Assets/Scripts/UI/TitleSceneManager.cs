@@ -5,15 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class TitleSceneManager : MonoBehaviour
 {
-    public void Exit() {
-        #if UNITY_EDITOR
+    public void Exit()
+    {
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#else
         Application.Quit();
-        #endif
+#endif
     }
 
-    public void GameStart() {
+    public void GameStart()
+    {
         SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
     }
 }
